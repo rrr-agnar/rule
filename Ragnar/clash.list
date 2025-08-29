@@ -515,6 +515,36 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/IPTVOther/IPTVOther.list"
     interval: 86400
     format: text
+  HK:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/hk.list"
+    interval: 86400
+    format: text
+  US:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/us.list"
+    interval: 86400
+    format: text
+  CN:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/cn.list"
+    interval: 86400
+    format: text
+  JP:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/Jp.list"
+    interval: 86400
+    format: text
+  AD:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/ad.list"
+    interval: 86400
+    format: text
 
 rules:
   # Go to ads
@@ -524,6 +554,7 @@ rules:
   - RULE-SET,BanProgramAD,REJECT
   - RULE-SET,Hijacking,REJECT
   - DOMAIN-KEYWORD,byteimg,REJECT
+  - RULE-SET,AD,REJECT
 
   # Local networks
   - RULE-SET,LocalAreaNetwork,DIRECT
@@ -543,6 +574,7 @@ rules:
 
 
   # RIOT and GameSelect
+  - RULE-SET,HK,HK
   - DOMAIN,ekg.riotgames.com,GameSelect
   - DOMAIN-KEYWORD,Riot,GameSelect
   - DOMAIN-SUFFIX,prodregistryv2.org,GameSelect
@@ -563,6 +595,8 @@ rules:
   - RULE-SET,Binance,TW
 
   # Foreign services
+  - DOMAIN-SET,US,US
+  - DOMAIN-SET,JP,JP
   - DOMAIN-KEYWORD,mercadopago,US
   - DOMAIN-KEYWORD,mercadolibre,US
   - DOMAIN,undefined,US
@@ -606,6 +640,7 @@ rules:
   - RULE-SET,ChinaDomain,DIRECT
   - RULE-SET,IPTVMainland,DIRECT
   - RULE-SET,IPTVOther,US
+  - RULE-SET,CN,DIRECT
   - DOMAIN-KEYWORD,ddys,DIRECT
   - DOMAIN-KEYWORD,huacloud,DIRECT
 
