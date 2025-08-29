@@ -595,8 +595,8 @@ rules:
   - RULE-SET,Binance,TW
 
   # Foreign services
-  - DOMAIN-SET,US,US
-  - DOMAIN-SET,JP,JP
+  - RULE-SET,US,US
+  - RULE-SET,JP,JP
   - DOMAIN-KEYWORD,mercadopago,US
   - DOMAIN-KEYWORD,mercadolibre,US
   - DOMAIN,undefined,US
