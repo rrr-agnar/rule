@@ -1,0 +1,14 @@
+
+DOMAIN-SUFFIX,api.tappx.com
+DOMAIN-SUFFIX,iad3rs0zoneb.pubnative.net
+DOMAIN-SUFFIX,localnetwork.uop // Added for: http://www.localnetwork.uop/
+DOMAIN-SUFFIX,sprig.com // Added for: api.sprig.com:443
+DOMAIN-SUFFIX,maplocatesdksnapshot.d.meituan.net
+DOMAIN-SUFFIX,beacons.gvt2.com // Added for: beacons.gvt2.com:443
+DOMAIN-SUFFIX,beacons5.gvt2.com // Added for: beacons5.gvt2.com:443
+DOMAIN-SUFFIX,beacons4.gvt2.com // Added for: beacons4.gvt2.com:443
+DOMAIN-KEYWORD,beacons
+DOMAIN-SUFFIX,1616gc.6dkc6z.com // Added for: 1616gc.6dkc6z.com:8005
+DOMAIN-SUFFIX,162b309164b80d2f8gg.cknr6y.com // Added for: 162b309164b80d2f8gg.cknr6y.com:8005
+DOMAIN-SUFFIX,img9.doubanio.com // Added for: img9.doubanio.com:443
+DOMAIN,nbpicture.xyz // Added for: nbpicture.xyz:443
