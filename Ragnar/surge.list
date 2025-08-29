@@ -82,7 +82,7 @@ RULE-SET,"https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ad.li
 # GitHub
 RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GitHub/GitHub.list,香港 // github
 # RIOT
-RULE-SET,Riot,GameSelect
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Riot/Riot.list,GameSelect
 DOMAIN-SUFFIX,prodregistryv2.org,GameSelect
 DOMAIN-SUFFIX,www.mycard520.com,GameSelect
 DOMAIN-SUFFIX,featureassets.org,GameSelect
