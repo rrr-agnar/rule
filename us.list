@@ -1,0 +1,14 @@
+#talkatone
+DOMAIN-SUFFIX,tktn.be
+DOMAIN-SUFFIX,mobilefuse.com
+DOMAIN-SUFFIX,liftoff-creatives.io
+DOMAIN-SUFFIX,tk0x1.com
+DOMAIN-SUFFIX,loopme.com
+DOMAIN-KEYWORD,smadex
+DOMAIN-KEYWORD,sharethrough
+DOMAIN-SUFFIX,pghub.io
+IP-CIDR,216.172.154.0/24
+#zibray
+DOMAIN-KEYWORD,zlib
+DOMAIN-KEYWORD,z-library
+DOMAIN-SUFFIX,z-lib.help // Added for: z-lib.help:443
