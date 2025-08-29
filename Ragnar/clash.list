@@ -42,7 +42,7 @@ geox-url:
 proxy-providers:
   花云:
     type: http
-    url: "https://api-huacloud.dev/sub?target=clash&insert=true&emoji=true&udp=true&clash.doh=true&new_name=true&filename=Flower_Trojan.yaml&url=https%3A%2F%2Fapi.xmancdn.com%2Fosubscribe.php%3Fsid%3D169430%26token%3DXkfqe3NLWtH1"
+    url: "订阅链接"
     interval: 1800
     health-check:
       enable: true
