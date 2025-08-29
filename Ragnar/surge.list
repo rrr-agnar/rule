@@ -78,7 +78,7 @@ RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SS
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/BanEasyPrivacy.list,REJECT,pre-matching,extended-matching,no-resolve // 隐私保护
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/BanProgramAD.list,REJECT,pre-matching,extended-matching,no-resolve // 应用去广告
 RULE-SET,Surge/Hijacking/Hijacking.list,REJECT,pre-matching,extended-matching,no-resolve // 反劫持
-RULE-SET,"https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ad.list?token=GHSAT0AAAAAADKEPDRN2L2TTELCOL7CECD42FRQGKQ",REJECT-DROP
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/ad.list,REJECT-DROP
 # GitHub
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list,香港 // github
 # RIOT
@@ -104,7 +104,7 @@ DOMAIN-SUFFIX,mlstatic.com,美国 // Added for: http2.mlstatic.com:443
 # payoneer
 DOMAIN-SUFFIX,ita.entersect.co.za,美国 // Added for: ita.entersect.co.za:443
 DOMAIN-KEYWORD,payoneer,美国 // Added for: myaccount.payoneer.com:443
-RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/%E5%88%86%E6%B5%81/Jp.ilst,日本
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/Jp.ilst,日本
 # app分流
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/WeChat/WeChat.list,美国
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Tencent/Tencent.list,DIRECT
@@ -121,7 +121,7 @@ RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Speedtest/Speedtest.list,香港
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/TikTok/TikTok.list,美国,no-resolve
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Ruleset/YouTube.list,Youtube,no-resolve // YouTube
-RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Surge/Google/Google.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Google/Google.list,美国
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Telegram.list,Telegram
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list,美国
 # 游戏
@@ -139,7 +139,7 @@ RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Global/Global_All.list,代理
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/GlobalMedia/GlobalMedia_All.list,代理
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/ProxyLite.list,代理,extended-matching // 代理集
-RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/%E5%88%86%E6%B5%81/us.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/us.list,美国
 # 国内
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/AmazonCN/AmazonCN.list,DIRECT
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/NetEaseMusic/NetEaseMusic.list,DIRECT
@@ -148,7 +148,7 @@ RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SS
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/IPTVMainland/IPTVMainland.list,DIRECT // iptv国内
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/IPTVOther/IPTVOther_All.list,美国
 # 国内漏网
-RULE-SET,"https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/cn.ilst?token=GHSAT0AAAAAADKEPDRNWRGW5RY3KNL5BHXW2FRQHQQ",DIRECT
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/cn.ilsthttps://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/cn.ilst,DIRECT
 # 以下规则将触发本地 DNS 解析
 GEOIP,CN,DIRECT
 FINAL,法外狂徒,dns-failed
