@@ -1,145 +1,614 @@
-[General]
-tun-excluded-routes = 192.168.0.0/16
-bypass-system = true
-bypass-tun = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12
-skip-proxy = 192.168.1.0/24, 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
-exclude-simple-hostnames = true
-internet-test-url = http://taobao.com/
-proxy-test-url = http://cp.cloudflare.com/generate_204
-test-timeout = 2
-wifi-assist = false
-# encrypted-dns-server = https://223.5.5.5/ // 除非当地 ISP 有严重的 DNS 污染问题，否则没必要开启 DoH，传统 DNS 的性能最优，网络异常后恢复速度最快
-read-etc-hosts = true
-ipv6 = false
-allow-wifi-access = true
-allow-hotspot-access = true
-geoip-maxmind-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb
-ipv6-vif = disabled
-all-hybrid = false
-use-local-host-item-for-proxy = true
-include-all-networks = false
-include-local-networks = false
-http-api = 425612@127.0.0.1:6171
-http-api-tls = false
-http-api-web-dashboard = false
-loglevel = notify
-hijack-dns = 8.8.8.8:53, 8.8.4.4:53
-disable-geoip-db-auto-update = false
-encrypted-dns-follow-outbound-mode = false
-dns-server = 8.8.8.8, 1.1.1.1, 8.8.4.4, 208.67.222.222, 208.67.220.220, 119.29.29.29, system
-udp-policy-not-supported-behaviour = REJECT
-encrypted-dns-server = https://doh.pub/dns-query
-[Proxy Group]
-花云 = select, policy-path=https://api-huacloud.dev/sub?target=surge&ver=4&insert=true&emoji=true&tfo=true&udp=true&surge.doh=true&filename=Flower_Trojan.conf&url=https%3A%2F%2Fapi.xmancdn.com%2Fosubscribe.php%3Fsid%3D169430%26token%3DXkfqe3NLWtH1, update-interval=43200, no-alert=0, hidden=0, include-all-proxies=0
-DNS = select, DIRECT, 美国, no-alert=0, hidden=0, include-all-proxies=0
-Apple代理块 = select, DIRECT, 美国, 香港, no-alert=0, hidden=0, include-all-proxies=0
-Netflix = select,  美国, 香港, 日本, 台湾, 新加坡,  no-alert=0, hidden=0, include-all-proxies=0, no-alert=0
-Youtube = select,   低倍率, 美国, 香港, 日本, 台湾, 新加坡, no-alert=0, hidden=0, include-all-proxies=0, no-alert=0
-Telegram = select,  低倍率, 美国, 香港, 日本, 新加坡, no-alert=0, hidden=0, include-all-proxies=0, no-alert=0
-代理 = select, 美国,  香港, 日本, 台湾, 新加坡,  no-alert=0, hidden=0, include-all-proxies=0, no-alert=0
-法外狂徒 = select, DIRECT, 低倍率,  香港, 美国, REJECT, no-alert=0, hidden=0, include-all-proxies=0, no-alert=0
-GameSelect = select, DIRECT,低倍率, 美国, 香港, 日本, 台湾, 新加坡, no-alert=0, hidden=0, include-all-proxies=0, no-alert=0
-低倍率 = url-test, no-alert=0, hidden=0, include-all-proxies=1, no-alert=0, policy-regex-filter=^(?=.*(实验性|0\.\d+))(?!.*Traffic).*, include-other-group=花云
-美国 = url-test, policy-regex-filter=^🇺🇸.*美国(?!.*\[|实验性|(家宽|0\.3x)), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=花云
-香港 = url-test, policy-regex-filter=^🇭🇰.*(?:HKG.*香港|香港高级|香港标准)(?!.*(?:0\.2x|0\.5x|唯云|Pornhub|腾讯云|阿里云|Google\s*Play)).*$, no-alert=0, hidden=0, include-all-proxies=1, include-other-group=花云
-日本 = url-test, policy-regex-filter=^🇯🇵.*日本(?!.*0\.[25]x|实验性), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=花云
-新加坡 = url-test, policy-regex-filter=^🇸🇬.*新加坡(?!.*0\.[25]|实验性), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=花云
-台湾 = url-test, policy-regex-filter=^🇹🇼.*台湾|台湾高级|台湾标准(?!.*唯云), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=花云
-英国 = url-test, policy-regex-filter=法国|德国|荷兰, no-alert=0, hidden=0, include-all-proxies=0, include-other-group=花云
-[Rule]
-DOMAIN,ekg.riotgames.com,GameSelect // Added for: ekg.riotgames.com:443
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/Tencent/Tencent.list,DIRECT
-DOMAIN-KEYWORD,byteimg,REJECT // Added for: p9-novel-sign.byteimg.com:443
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+clash-for-android:
+  append-system-dns: false
+profile:
+  tracing: true
+experimental:
+  sniff-tls-sni: true
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  fake-ip-filter:
+    - "*.lan"
+    - "*.srv.nintendo.net"
+    - "*.stun.playstation.net"
+    - xbox.*.microsoft.com
+    - "*.xboxlive.com"
+    - "*.teafone.com"
+    - "*.sktswe.net"
+    - rtc.goodfone.co.kr
+    - "*.chattti.com"
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+    - tls://223.5.5.5:853
+    - tls://223.6.6.6:853
+    - tls://120.53.53.53
+    - tls://1.12.12.12
+geodata-mode: true
+geox-url:
+  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb"
+  asn: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/GeoLite2-ASN.mmdb"
+proxy-providers:
+  花云:
+    type: http
+    url: "https://api-huacloud.dev/sub?target=clash&insert=true&emoji=true&udp=true&clash.doh=true&new_name=true&filename=Flower_Trojan.yaml&url=https%3A%2F%2Fapi.xmancdn.com%2Fosubscribe.php%3Fsid%3D169430%26token%3DXkfqe3NLWtH1"
+    interval: 1800
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+proxy-groups:
+  - name: 代理
+    type: select
+    proxies:
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+  - name: Youtube
+    type: select
+    proxies:
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+  - name: Netflix
+    type: select
+    proxies:
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+  - name: Bilibili
+    type: select
+    proxies:
+      - DIRECT
+      - HK
+      - TW
+  - name: GameSelect
+    type: select
+    proxies:
+      - DIRECT
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+  - name: DNS
+    type: select
+    proxies:
+      - DIRECT
+      - HK
+      - US
+  - name: Microsoft
+    type: select
+    proxies:
+      - DIRECT
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+      - 代理
+  - name: OpenAI
+    type: select
+    proxies:
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+      - 代理
+  - name: PayPal
+    type: select
+    proxies:
+      - DIRECT
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+      - 代理
+  - name: Apple
+    type: select
+    proxies:
+      - DIRECT
+      - HK
+      - JP
+      - SG
+      - TW
+      - US
+  - name: 法外狂徒
+    type: select
+    proxies:
+      - HK
+      - US
+      - 低倍率
+      - DIRECT
+  - name: HK
+    type: url-test
+    urt: http://www.gstatic.com/generate_204
+    include-all: true
+    filter: ^🇭🇰.*(?:HKG.*香港|香港高级|香港标准)(?!.*(?:0\.2x|0\.5x|唯云|Pornhub|腾讯云|阿里云|Google\s*Play)).*$
+    tolerance: 50
+    use:
+      - 花云
+  - name: JP
+    type: url-test
+    urt: http://www.gstatic.com/generate_204
+    include-all: true
+    filter: ^🇯🇵.*日本(?!.*0\.[25]x|实验性)
+    interval: 300
+    tolerance: 50
+    use:
+      - 花云
+  - name: SG
+    type: url-test
+    urt: http://www.gstatic.com/generate_204
+    include-all: true
+    filter: ^🇸🇬.*新加坡(?!.*实验性)
+    interval: 300
+    tolerance: 50
+    use:
+      - 花云
+  - name: TW
+    type: url-test
+    urt: http://www.gstatic.com/generate_204
+    include-all: true
+    filter: ^🇨🇳.*台湾
+    interval: 300
+    tolerance: 50
+    use:
+      - 花云
+  - name: US
+    urt: http://www.gstatic.com/generate_204
+    type: url-test
+    include-all: true
+    filter: ^🇺🇸.*美国(?!.*实验性)
+    interval: 300
+    tolerance: 50
+    use:
+      - 花云
+  - name: 低倍率
+    type: url-test
+    urt: http://www.gstatic.com/generate_204
+    include-all: true
+    filter: ^(?=.*(实验性|0\.\d+))(?!.*Traffic).*
+    interval: 300
+    tolerance: 50
+    use:
+      - 花云
+  - name: AD
+    type: select
+    proxies:
+      - REJECT
+  - name: EU
+    type: url-test
+    urt: http://www.gstatic.com/generate_204
+    filter: .*?(荷兰|法国|德国).*?
+    interval: 300
+    tolerance: 50
+    use:
+      - 花云
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list"
+    interval: 86400
+    format: text
 
-IP-ASN,44907,新加坡,no-resolve
-IP-ASN,62014,新加坡,no-resolve
-IP-ASN,59930,美国,no-resolve
-IP-ASN,62041,英国,no-resolve
-IP-ASN,211157,英国,no-resolve
-IP-CIDR,5.28.192.0/18,英国,no-resolve
-IP-CIDR,109.239.140.0/24,英国,no-resolve
+
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
+    interval: 86400
+    format: text
+
+  BanAD:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
+    interval: 86400
+    format: text
+
+
+  BanEasyListChina:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list"
+    interval: 86400
+    format: text
+
+
+  BanEasyPrivacy:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list"
+    interval: 86400
+    format: text
+
+
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list"
+    interval: 86400
+    format: text
+
+
+  Hijacking:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Hijacking/Hijacking.list"
+    interval: 86400
+    format: text
+
+  GitHub:
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GitHub/GitHub.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+
+  Tencent:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Tencent/Tencent.list"
+    interval: 86400
+    format: text
+
+  Binance:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Binance/Binance.list"
+    interval: 86400
+    format: text
+
+  WeChat:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.list"
+    interval: 86400
+
+  DaMai:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DaMai/DaMai.list"
+    interval: 86400
+    format: text
+
+  GaoDe:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GaoDe/GaoDe.list"
+    interval: 86400
+
+  Nvidia:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nvidia/Nvidia.list"
+    interval: 86400
+    format: text
+
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleCN.list"
+    interval: 86400
+    format: text
+
+  GoogleVoice:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleVoice/GoogleVoice.list"
+    interval: 86400
+    format: text
+
+  Whatsapp:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Whatsapp/Whatsapp.list"
+    interval: 86400
+    format: text
+
+  PayPal:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.list"
+    interval: 86400
+    format: text
+
+  OpenAI:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.list"
+    interval: 86400
+    format: text
+
+  Netflix:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.list"
+    interval: 86400
+    format: text
+
+  Amazon:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.list"
+    interval: 86400
+    format: text
+
+  Speedtest:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.list"
+    interval: 86400
+    format: text
+
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.list"
+    interval: 86400
+    format: text
+
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list"
+    interval: 86400
+    format: text
+
+  Google:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.list"
+    interval: 86400
+    format: text
+
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.list"
+    interval: 86400
+    format: text
+
+  SteamCN:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.list"
+    interval: 86400
+    format: text
+
+  Riot:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Riot/Riot.list"
+    interval: 86400
+    format: text
+
+  Game:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.list"
+    interval: 86400
+    format: text
+
+  Hearthstone:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hearthstone/Hearthstone.list"
+    interval: 86400
+    format: text
+
+  AppleNoCnCdn:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/main/ConfigFile/Surge/Apple/no-cn-cdn-domain.list"
+    interval: 86400
+    format: text
+
+  AppleProxy:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppleProxy/AppleProxy.list"
+    interval: 86400
+    format: text
+
+  Apple:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list"
+    interval: 86400
+    format: text
+
+  DNS:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DNS/DNS.list"
+    interval: 86400
+    format: text
+
+  ChinaMedia:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMedia/ChinaMedia.list"
+    interval: 86400
+    format: text
+
+  Global:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list"
+    interval: 86400
+    format: text
+
+  GlobalMedia:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia.list"
+    interval: 86400
+    format: text
+
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list"
+    interval: 86400
+    format: text
+
+  AmazonCN:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AmazonCN/AmazonCN.list"
+    interval: 86400
+    format: text
+
+  NetEaseMusic:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.list"
+    interval: 86400
+    format: text
+
+  China:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.list"
+    interval: 86400
+    format: text
+
+  ChinaDomain:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
+    interval: 86400
+    format: text
+
+  IPTVMainland:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/IPTVMainland/IPTVMainland.list"
+    interval: 86400
+    format: text
+
+  IPTVOther:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/IPTVOther/IPTVOther.list"
+    interval: 86400
+    format: text
 
 rules:
+  # Go to ads
+  - RULE-SET,BanAD,REJECT
+  - RULE-SET,BanEasyListChina,REJECT
+  - RULE-SET,BanEasyPrivacy,REJECT
+  - RULE-SET,BanProgramAD,REJECT
+  - RULE-SET,Hijacking,REJECT
+  - DOMAIN-KEYWORD,byteimg,REJECT
+
+  # Local networks
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
+
   # Telegram
-  - IP-ASN, 44907, 新加坡, no-resolve
-  - IP-ASN, 62014, 新加坡, no-resolve
-  - IP-ASN, 59930, 美国, no-resolve
-  - IP-ASN, 62041, 英国, no-resolve
-  - IP-ASN, 211157, 英国, no-resolve
-  - IP-CIDR, 5.28.192.0/18, 英国, no-resolve
-  - IP-CIDR, 109.239.140.0/24, 英国, no-resolve
-# 去广告
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/LocalAreaNetwork.list,DIRECT // 内网
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list,DIRECT // 云服务器
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanAD.list,REJECT,pre-matching,extended-matching,no-resolve // 去广告
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanEasyListChina.list,REJECT,pre-matching,extended-matching,no-resolve
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanEasyPrivacy.list,REJECT,pre-matching,extended-matching,no-resolve // 隐私保护
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanProgramAD.list,REJECT,pre-matching,extended-matching,no-resolve // 应用去广告
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Hijacking/Hijacking.list,REJECT,pre-matching,extended-matching,no-resolve // 反劫持
-# GitHub
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/GitHub/GitHub.list,香港 // github
-# RIOT
-DOMAIN-KEYWORD,Riot,GameSelect
-DOMAIN-SUFFIX,prodregistryv2.org,GameSelect
-DOMAIN-SUFFIX,www.mycard520.com,GameSelect
-DOMAIN-SUFFIX,featureassets.org,GameSelect
-IP-CIDR,151.106.247.16/24,GameSelect
-DOMAIN,usw2-red.pp.sgp.pvp.net,GameSelect
-DOMAIN,o163744.ingest.sentry.io,GameSelect
-IP-CIDR,35.186.247.156/24,GameSelect
-DOMAIN,sentry.io,GameSelect
-DOMAIN,www.mycard520.com.tw,GameSelect
-DOMAIN,update.googleapis.com,GameSelect
-# 💰
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Binance/Binance.list,台湾
-# 国外漏网
-# 美客多
-DOMAIN-KEYWORD,mercadopago,美国 // Added for: api.mercadopago.com:443
-DOMAIN-KEYWORD,mercadolibre,美国 // Added for: mobile.mercadolibre.com.ar:443
-DOMAIN,undefined,美国 // Added for: www.undefined:443
-DOMAIN-SUFFIX,mlstatic.com,美国 // Added for: http2.mlstatic.com:443
-# payoneer
-DOMAIN-SUFFIX,ita.entersect.co.za,美国 // Added for: ita.entersect.co.za:443
-DOMAIN-KEYWORD,payoneer,美国 // Added for: myaccount.payoneer.com:443
-# app分流
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/WeChat/WeChat.list,美国
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DaMai/DaMai.list,美国 // 大麦
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GaoDe/GaoDe.list,DIRECT // 高德地图
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Nvidia/Nvidia.list,美国
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/GoogleCN.list,DIRECT // google cn
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GoogleVoice/GoogleVoice.list,美国
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.list,美国
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PayPal/PayPal.list,美国
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.list,美国
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Netflix/Netflix.list,Netflix
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Amazon/Amazon.list,美国
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Speedtest/Speedtest.list,香港
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/TikTok/TikTok.list,美国,no-resolve
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/YouTube.list,Youtube,no-resolve // YouTube
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Google/Google.list,美国
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Microsoft/Microsoft.list,美国
-# 游戏
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/SteamCN/SteamCN.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Riot/Riot.list,GameSelect
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Game/Game.list,GameSelect
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Hearthstone/Hearthstone.list,GameSelect
-# 国外
-RULE-SET,https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Surge/Apple/no-cn-cdn-domain.list,代理
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AppleProxy/AppleProxy.list,DIRECT // 苹果代理！
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Apple.list,DIRECT // apple国内
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DNS/DNS.list,DNS
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/ChinaMedia/ChinaMedia.list,DIRECT // 国内媒体
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list,代理
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/GlobalMedia/GlobalMedia.list,代理
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyLite.list,代理,extended-matching // 代理集
-# 国内
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AmazonCN/AmazonCN.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/NetEaseMusic/NetEaseMusic.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/China/China.list,DIRECT,no-resolve // 国内
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaDomain.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/IPTVMainland/IPTVMainland.list,DIRECT // iptv国内
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/IPTVOther/IPTVOther.list,美国
-# 国内漏网
-# 以下规则将触发本地 DNS 解析
-GEOIP,CN,DIRECT
-FINAL,法外狂徒,dns-failed
+  - IP-ASN,44907,SG
+  - IP-ASN,62014,SG
+  - IP-ASN,59930,US
+  - IP-ASN,62041,EU
+  - IP-ASN,211157,EU
+  - IP-CIDR,5.28.192.0/18,EU
+  - IP-CIDR,109.239.140.0/24,EU
+
+  # GitHub
+  - RULE-SET,GitHub,HK
+
+
+  # RIOT and GameSelect
+  - DOMAIN,ekg.riotgames.com,GameSelect
+  - DOMAIN-KEYWORD,Riot,GameSelect
+  - DOMAIN-SUFFIX,prodregistryv2.org,GameSelect
+  - DOMAIN-SUFFIX,www.mycard520.com,GameSelect
+  - DOMAIN-SUFFIX,featureassets.org,GameSelect
+  - IP-CIDR,151.106.247.16/24,GameSelect
+  - DOMAIN,usw2-red.pp.sgp.pvp.net,GameSelect
+  - DOMAIN,o163744.ingest.sentry.io,GameSelect
+  - IP-CIDR,35.186.247.156/24,GameSelect
+  - DOMAIN,sentry.io,GameSelect
+  - DOMAIN,www.mycard520.com.tw,GameSelect
+  - DOMAIN,update.googleapis.com,GameSelect
+  - RULE-SET,Riot,GameSelect
+  - RULE-SET,Game,GameSelect
+  - RULE-SET,Hearthstone,GameSelect
+
+  # Binance
+  - RULE-SET,Binance,TW
+
+  # Foreign services
+  - DOMAIN-KEYWORD,mercadopago,US
+  - DOMAIN-KEYWORD,mercadolibre,US
+  - DOMAIN,undefined,US
+  - DOMAIN-SUFFIX,mlstatic.com,US
+  - DOMAIN-SUFFIX,ita.entersect.co.za,US
+  - DOMAIN-KEYWORD,payoneer,US
+
+  # App-specific rules
+  # Tencent
+  - RULE-SET,Tencent,DIRECT
+  - RULE-SET,WeChat,US
+  - RULE-SET,DaMai,US
+  - RULE-SET,GaoDe,DIRECT
+  - RULE-SET,Nvidia,US
+  - RULE-SET,GoogleCN,DIRECT
+  - RULE-SET,GoogleVoice,US
+  - RULE-SET,Whatsapp,US
+  - RULE-SET,PayPal,US
+  - RULE-SET,OpenAI,US
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Amazon,US
+  - RULE-SET,Speedtest,代理
+  - RULE-SET,TikTok,US
+  - RULE-SET,YouTube,Youtube
+  - RULE-SET,Google,US
+  - RULE-SET,Microsoft,Microsoft
+  - RULE-SET,SteamCN,DIRECT
+
+  # General rules
+  - RULE-SET,AppleNoCnCdn,代理
+  - RULE-SET,AppleProxy,DIRECT
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,DNS,DNS
+  - RULE-SET,ChinaMedia,DIRECT
+  - RULE-SET,Global,代理
+  - RULE-SET,GlobalMedia,代理
+  - RULE-SET,ProxyLite,代理
+  - RULE-SET,AmazonCN,DIRECT
+  - RULE-SET,NetEaseMusic,DIRECT
+  - RULE-SET,China,DIRECT
+  - RULE-SET,ChinaDomain,DIRECT
+  - RULE-SET,IPTVMainland,DIRECT
+  - RULE-SET,IPTVOther,US
+  - DOMAIN-KEYWORD,ddys,DIRECT
+  - DOMAIN-KEYWORD,huacloud,DIRECT
+
+  # GeoIP and final rules
+  - GEOIP,CN,DIRECT
+  - MATCH,法外狂徒
