@@ -4,6 +4,6 @@ DOMAIN-SUFFIX,yahoo.co.jp // Added for: apm.yahoo.co.jp:443
 DOMAIN-SUFFIX,rakuten.co.jp // Added for: s-ad.rmp.rakuten.co.jp:443
 DOMAIN,rt.udmserve.net // Added for: rt.udmserve.net:443
 DOMAIN-SUFFIX,jp.rakuten-static.com // Added for: jp.rakuten-static.com:443
-DOMAIN-SUFFIX,yimg.jp // Added for: quriosity-pctr.c.yimg.jp:443
-DOMAIN-SUFFIX,yahooapis.jp // Added for: dsb.yahooapis.jp:443
-DOMAIN-SUFFIX,storage-yahoo.jp // Added for: shp-search-fe.west.edge.storage-yahoo.jp:443
+DOMAIN-SUFFIX,yimg.jp
+DOMAIN-SUFFIX,yahooapis.jp
+DOMAIN-SUFFIX,storage-yahoo.jp
