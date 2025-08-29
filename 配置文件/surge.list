@@ -1,1 +1,162 @@
-11
+[General]
+tun-excluded-routes = 192.168.0.0/16
+bypass-system = true
+bypass-tun = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12
+skip-proxy = 192.168.1.0/24, 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+exclude-simple-hostnames = true
+internet-test-url = http://taobao.com/
+proxy-test-url = http://cp.cloudflare.com/generate_204
+test-timeout = 2
+wifi-assist = false
+# encrypted-dns-server = https://223.5.5.5/ // 除非当地 ISP 有严重的 DNS 污染问题，否则没必要开启 DoH，传统 DNS 的性能最优，网络异常后恢复速度最快
+read-etc-hosts = true
+ipv6 = false
+allow-wifi-access = true
+allow-hotspot-access = true
+geoip-maxmind-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb
+ipv6-vif = disabled
+all-hybrid = false
+use-local-host-item-for-proxy = true
+include-all-networks = false
+include-local-networks = false
+http-api = 425612@127.0.0.1:6171
+http-api-tls = false
+http-api-web-dashboard = false
+loglevel = notify
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53
+disable-geoip-db-auto-update = false
+encrypted-dns-follow-outbound-mode = false
+dns-server = 8.8.8.8, 1.1.1.1, 8.8.4.4, 208.67.222.222, 208.67.220.220, 119.29.29.29, system
+udp-policy-not-supported-behaviour = REJECT
+encrypted-dns-server = https://doh.pub/dns-query
+
+[Proxy Group]
+机场 = select, update-interval=36000, no-alert=0, hidden=0, include-all-proxies=0, persistent=1, include-other-group=花云
+花云 = select, policy-path=https://api-huacloud.dev/sub?target=surge&ver=4&insert=true&emoji=true&tfo=true&udp=true&surge.doh=true&filename=Flower_Trojan.conf&url=https%3A%2F%2Fapi.xmancdn.com%2Fosubscribe.php%3Fsid%3D169430%26token%3DXkfqe3NLWtH1, update-interval=43200, no-alert=0, hidden=0, include-all-proxies=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/FlowerCloud.png
+afun = select, policy-path=https://wcnmgfw.trafficmanager.net/api/v1/client/subscribe?token=e64febf33ea9d55e38ec441098357602, update-interval=43200, no-alert=0, hidden=0, include-all-proxies=0
+tlaka = select, 香港, 美国, no-alert=0, hidden=0, include-all-proxies=0
+DNS = select, DIRECT, 美国, no-alert=0, hidden=0, include-all-proxies=0
+公共网用 = select, 低倍率, 美国, 香港, no-alert=0, hidden=0, include-all-proxies=0
+Apple代理块 = select, DIRECT, 美国, 香港, no-alert=0, hidden=0, include-all-proxies=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/apple.png
+Netflix = select, 美国, 香港, 日本, 台湾, 新加坡, 土耳其, 印度 no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/netflix(red).png
+Youtube = select, 低倍率, 美国, 香港, 日本, 台湾, 新加坡, 印度 no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/youtube.png
+Telegram = select, 低倍率, 美国, 香港, 日本, 新加坡, 印度 no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/telegram(blue1).png
+代理 = select, 美国, 香港, 日本, 台湾, 新加坡, 印度 no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Surge(11).png
+法外狂徒 = select, DIRECT, 低倍率, 香港, 美国, REJECT, 印度 no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/xiaoxiong(1).png
+GameSelect = select, DIRECT, 低倍率, 美国, 香港, 日本, 台湾, 新加坡, 印度 no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/game.png
+低倍率 = smart, 印度 no-alert=0, hidden=0, include-all-proxies=1, no-alert=0, policy-regex-filter=^(?=.*(实验性|0\.\d+))(?!.*Traffic).*, include-other-group=机场
+比特币 = select, 台湾, 日本, 新加坡, no-alert=0, hidden=0, include-all-proxies=0
+韩国 = smart, policy-regex-filter=韩国, no-alert=0, hidden=0, include-all-proxies=0, include-other-group=机场
+美国 = smart, policy-regex-filter=^🇺🇸.*美国(?!.*\[|实验性|(家宽|0\.3x)), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=机场, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/US.png
+香港 = smart, policy-regex-filter=^🇭🇰.*(?:HKG.*香港|香港高级|香港标准)(?!.*(?:0\.2x|0\.5x|唯云|Pornhub|腾讯云|阿里云|Google\s*Play)).*$, no-alert=0, hidden=0, include-all-proxies=1, include-other-group=机场, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Hongkong(3).png
+日本 = smart, policy-regex-filter=^🇯🇵.*日本(?!.*0\.[25]x|实验性), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=机场, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Japan(2).png
+新加坡 = smart, policy-regex-filter=^🇸🇬.*新加坡(?!.*0\.[25]|实验性), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=机场, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/singapore(1).png
+台湾 = smart, policy-regex-filter=^🇹🇼.*台湾|台湾高级|台湾标准(?!.*唯云), no-alert=0, hidden=0, include-all-proxies=1, include-other-group=机场, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/taiwan(3).png
+土耳其 = select, policy-regex-filter=土耳其, no-alert=0, hidden=0, include-all-proxies=1, include-other-group=机场
+英国 = smart, policy-regex-filter=法国|德国|荷兰, no-alert=0, hidden=0, include-all-proxies=0, include-other-group=机场
+本地 = select, no-alert=0, hidden=0, include-all-proxies=0
+
+[Rule]
+RULE-SET,https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/surge/us.txt,REJECT
+RULE-SET,https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/surge/cn.txt,DIRECT
+DOMAIN,ekg.riotgames.com,GameSelect // Added for: ekg.riotgames.com:443
+DOMAIN-KEYWORD,byteimg,REJECT // Added for: p9-novel-sign.byteimg.com:443
+
+IP-ASN,44907,新加坡,no-resolve
+IP-ASN,62014,新加坡,no-resolve
+IP-ASN,59930,美国,no-resolve
+IP-ASN,62041,英国,no-resolve
+IP-ASN,211157,英国,no-resolve
+IP-CIDR,5.28.192.0/18,英国,no-resolve
+IP-CIDR,109.239.140.0/24,英国,no-resolve
+RULE-SET,https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/surge/telegram.txt,代理,no-resolve
+# 去广告
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/LocalAreaNetwork.list,DIRECT // 内网
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/ChinaCompanyIp.list,DIRECT // 云服务器
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/BanAD.list,REJECT,pre-matching,extended-matching,no-resolve // 去广告
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/BanEasyListChina.list,REJECT,pre-matching,extended-matching,no-resolve
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/BanEasyPrivacy.list,REJECT,pre-matching,extended-matching,no-resolve // 隐私保护
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/BanProgramAD.list,REJECT,pre-matching,extended-matching,no-resolve // 应用去广告
+RULE-SET,Surge/Hijacking/Hijacking.list,REJECT,pre-matching,extended-matching,no-resolve // 反劫持
+RULE-SET,"https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ad.list?token=GHSAT0AAAAAADKEPDRN2L2TTELCOL7CECD42FRQGKQ",REJECT-DROP
+# GitHub
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GitHub/GitHub.list,香港 // github
+# RIOT
+RULE-SET,Riot,GameSelect
+DOMAIN-SUFFIX,prodregistryv2.org,GameSelect
+DOMAIN-SUFFIX,www.mycard520.com,GameSelect
+DOMAIN-SUFFIX,featureassets.org,GameSelect
+IP-CIDR,151.106.247.16/24,GameSelect,no-resolve
+DOMAIN,usw2-red.pp.sgp.pvp.net,GameSelect
+DOMAIN,o163744.ingest.sentry.io,GameSelect
+IP-CIDR,35.186.247.156/24,GameSelect,no-resolve
+DOMAIN,sentry.io,GameSelect
+DOMAIN,www.mycard520.com.tw,GameSelect
+DOMAIN,update.googleapis.com,GameSelect
+# 💰
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Binance/Binance.list,比特币
+# 国外漏网
+# 美客多
+DOMAIN-KEYWORD,mercadopago,美国 // Added for: api.mercadopago.com:443
+DOMAIN-KEYWORD,mercadolibre,美国 // Added for: mobile.mercadolibre.com.ar:443
+DOMAIN,undefined,美国 // Added for: www.undefined:443
+DOMAIN-SUFFIX,mlstatic.com,美国 // Added for: http2.mlstatic.com:443
+# payoneer
+DOMAIN-SUFFIX,ita.entersect.co.za,美国 // Added for: ita.entersect.co.za:443
+DOMAIN-KEYWORD,payoneer,美国 // Added for: myaccount.payoneer.com:443
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/%E5%88%86%E6%B5%81/Jp.ilst,日本
+# app分流
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/WeChat/WeChat.list,美国
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Tencent/Tencent.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/DaMai/DaMai.list,美国 // 大麦
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GaoDe/GaoDe.list,DIRECT // 高德地图
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Nvidia/Nvidia.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/GoogleCN.list,DIRECT // google cn
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GoogleVoice/GoogleVoice.list,美国
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Whatsapp/Whatsapp.list,美国
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/PayPal/PayPal.list,美国
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/OpenAI/OpenAI.list,美国
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Netflix/Netflix.list,Netflix
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Amazon/Amazon.list,美国
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Speedtest/Speedtest.list,香港
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/TikTok/TikTok.list,美国,no-resolve
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Ruleset/YouTube.list,Youtube,no-resolve // YouTube
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Surge/Google/Google.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Telegram.list,Telegram
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Microsoft/Microsoft.list,美国
+# 游戏
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/SteamCN/SteamCN.list,DIRECT
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Riot/Riot.list,GameSelect
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Game/Game.list,GameSelect
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Hearthstone/Hearthstone.list,GameSelect
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Blizzard/Blizzard_Resolve.list,GameSelect
+# 国外
+RULE-SET,https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Surge/Apple/no-cn-cdn-domain.list,代理
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/AppleProxy/AppleProxy.list,美国 // 苹果代理！
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Apple.list,DIRECT // apple国内
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/DNS/DNS.list,DNS
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT // 国内媒体
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Global/Global_All.list,代理
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GlobalMedia/GlobalMedia_All.list,代理
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/ProxyLite.list,代理,extended-matching // 代理集
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/%E5%88%86%E6%B5%81/us.list,美国
+# 国内
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/AmazonCN/AmazonCN.list,DIRECT
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/NetEaseMusic/NetEaseMusic.list,DIRECT
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/China/China.list,DIRECT,no-resolve // 国内
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/ChinaDomain.list,DIRECT
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/IPTVMainland/IPTVMainland.list,DIRECT // iptv国内
+RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/IPTVOther/IPTVOther_All.list,美国
+# 国内漏网
+RULE-SET,"https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/cn.ilst?token=GHSAT0AAAAAADKEPDRNWRGW5RY3KNL5BHXW2FRQHQQ",DIRECT
+# 以下规则将触发本地 DNS 解析
+GEOIP,CN,DIRECT
+FINAL,法外狂徒,dns-failed
+
+[MITM]
+skip-server-cert-verify = true
+h2 = true
+hostname = -*api.revenuecat.com, *, token.safebrowsing.apple, -*snssdk.com, -*amemv.com
+hostname-disabled = *
+ca-passphrase = DB0D5142
+ca-p12 = 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
