@@ -32,7 +32,7 @@ udp-policy-not-supported-behaviour = REJECT
 encrypted-dns-server = https://doh.pub/dns-query
 
 [Proxy Group]
-花云 = select, policy-path=https://api-huacloud.dev/sub?target=surge&ver=4&insert=true&emoji=true&tfo=true&udp=true&surge.doh=true&filename=Flower_Trojan.conf&url=https%3A%2F%2Fapi.xmancdn.com%2Fosubscribe.php%3Fsid%3D169430%26token%3DXkfqe3NLWtH1, update-interval=43200, no-alert=0, hidden=0, include-all-proxies=0
+花云 = select, policy-path=订阅链接, update-interval=43200, no-alert=0, hidden=0, include-all-proxies=0
 DNS = select, DIRECT, 美国, no-alert=0, hidden=0, include-all-proxies=0
 Apple代理块 = select, DIRECT, 美国, 香港, no-alert=0, hidden=0, include-all-proxies=0
 Netflix = select,  美国, 香港, 日本, 台湾, 新加坡,  no-alert=0, hidden=0, include-all-proxies=0, no-alert=0
