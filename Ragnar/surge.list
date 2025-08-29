@@ -148,7 +148,7 @@ RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SS
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/IPTVMainland/IPTVMainland.list,DIRECT // iptv国内
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/IPTVOther/IPTVOther_All.list,美国
 # 国内漏网
-RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/cn.ilsthttps://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/cn.ilst,DIRECT
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/fenliu/cn.ilst,DIRECT
 # 以下规则将触发本地 DNS 解析
 GEOIP,CN,DIRECT
 FINAL,法外狂徒,dns-failed
