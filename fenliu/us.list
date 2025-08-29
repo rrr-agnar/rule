@@ -20,3 +20,6 @@ DOMAIN-SUFFIX,mlstatic.com
 # payoneer
 DOMAIN-SUFFIX,ita.entersect.co.za
 DOMAIN-KEYWORD,payoneer
+#TikTok
+DOMAIN-SUFFIX,unified.adsafeprotected.com
+DOMAIN-SUFFIX,adsafeprotected.com:443
