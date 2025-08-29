@@ -80,7 +80,7 @@ RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SS
 RULE-SET,Surge/Hijacking/Hijacking.list,REJECT,pre-matching,extended-matching,no-resolve // 反劫持
 RULE-SET,"https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ad.list?token=GHSAT0AAAAAADKEPDRN2L2TTELCOL7CECD42FRQGKQ",REJECT-DROP
 # GitHub
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GitHub/GitHub.list,香港 // github
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/GitHub/GitHub.list,香港 // github
 # RIOT
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Riot/Riot.list,GameSelect
 DOMAIN-SUFFIX,prodregistryv2.org,GameSelect
@@ -94,7 +94,7 @@ DOMAIN,sentry.io,GameSelect
 DOMAIN,www.mycard520.com.tw,GameSelect
 DOMAIN,update.googleapis.com,GameSelect
 # 💰
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Binance/Binance.list,比特币
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Binance/Binance.list,比特币
 # 国外漏网
 # 美客多
 DOMAIN-KEYWORD,mercadopago,美国 // Added for: api.mercadopago.com:443
@@ -106,47 +106,47 @@ DOMAIN-SUFFIX,ita.entersect.co.za,美国 // Added for: ita.entersect.co.za:443
 DOMAIN-KEYWORD,payoneer,美国 // Added for: myaccount.payoneer.com:443
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/%E5%88%86%E6%B5%81/Jp.ilst,日本
 # app分流
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/WeChat/WeChat.list,美国
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Tencent/Tencent.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/WeChat/WeChat.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Tencent/Tencent.list,DIRECT
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Surge/DaMai/DaMai.list,美国 // 大麦
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GaoDe/GaoDe.list,DIRECT // 高德地图
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Nvidia/Nvidia.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/GaoDe/GaoDe.list,DIRECT // 高德地图
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Nvidia/Nvidia.list,美国
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/GoogleCN.list,DIRECT // google cn
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GoogleVoice/GoogleVoice.list,美国
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Whatsapp/Whatsapp.list,美国
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/PayPal/PayPal.list,美国
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/OpenAI/OpenAI.list,美国
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Netflix/Netflix.list,Netflix
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Amazon/Amazon.list,美国
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Speedtest/Speedtest.list,香港
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/TikTok/TikTok.list,美国,no-resolve
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/GoogleVoice/GoogleVoice.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Whatsapp/Whatsapp.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/PayPal/PayPal.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/OpenAI/OpenAI.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Netflix/Netflix.list,Netflix
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Amazon/Amazon.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Speedtest/Speedtest.list,香港
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/TikTok/TikTok.list,美国,no-resolve
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Ruleset/YouTube.list,Youtube,no-resolve // YouTube
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Surge/Google/Google.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Surge/Google/Google.list,美国
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Telegram.list,Telegram
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Microsoft/Microsoft.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Microsoft/Microsoft.list,美国
 # 游戏
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/SteamCN/SteamCN.list,DIRECT
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Riot/Riot.list,GameSelect
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Game/Game.list,GameSelect
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Hearthstone/Hearthstone.list,GameSelect
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Blizzard/Blizzard_Resolve.list,GameSelect
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/SteamCN/SteamCN.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Riot/Riot.list,GameSelect
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Game/Game.list,GameSelect
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Hearthstone/Hearthstone.list,GameSelect
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Blizzard/Blizzard_Resolve.list,GameSelect
 # 国外
 RULE-SET,https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Surge/Apple/no-cn-cdn-domain.list,代理
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/AppleProxy/AppleProxy.list,美国 // 苹果代理！
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/AppleProxy/AppleProxy.list,美国 // 苹果代理！
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/Apple.list,DIRECT // apple国内
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/DNS/DNS.list,DNS
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT // 国内媒体
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/Global/Global_All.list,代理
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/GlobalMedia/GlobalMedia_All.list,代理
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/DNS/DNS.list,DNS
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/ChinaMedia/ChinaMedia.list,DIRECT // 国内媒体
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/Global/Global_All.list,代理
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/GlobalMedia/GlobalMedia_All.list,代理
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/ProxyLite.list,代理,extended-matching // 代理集
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/%E5%88%86%E6%B5%81/us.list,美国
 # 国内
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/AmazonCN/AmazonCN.list,DIRECT
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/NetEaseMusic/NetEaseMusic.list,DIRECT
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/China/China.list,DIRECT,no-resolve // 国内
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/AmazonCN/AmazonCN.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/NetEaseMusic/NetEaseMusic.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/China/China.list,DIRECT,no-resolve // 国内
 RULE-SET,https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/ACL4SSR-master/Clash/ChinaDomain.list,DIRECT
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/IPTVMainland/IPTVMainland.list,DIRECT // iptv国内
-RULE-SET,https://github.com/rrr-agnar/ios_rule_script/blob/master/rule/Surge/IPTVOther/IPTVOther_All.list,美国
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/IPTVMainland/IPTVMainland.list,DIRECT // iptv国内
+RULE-SET,https://raw.githubusercontent.com/rrr-agnar/ios_rule_script/refs/heads/master/rule/Surge/IPTVOther/IPTVOther_All.list,美国
 # 国内漏网
 RULE-SET,"https://raw.githubusercontent.com/rrr-agnar/rule/refs/heads/main/cn.ilst?token=GHSAT0AAAAAADKEPDRNWRGW5RY3KNL5BHXW2FRQHQQ",DIRECT
 # 以下规则将触发本地 DNS 解析
