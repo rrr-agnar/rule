@@ -132,7 +132,7 @@ DOMAIN-SUFFIX,photos.google.com,代理
 DOMAIN-SUFFIX,hangouts.google.com,代理
 DOMAIN-SUFFIX,translate.google.com,代理
 DOMAIN-SUFFIX,storage.googleapis.com,代理 # Google Cloud 存储
-IP-ASN,15169,Google,no-resolve
+IP-ASN,15169,代理,no-resolve
 # —— Netflix 主站及区域站点 ——
 DOMAIN-SUFFIX,netflix.com,Netflix
 DOMAIN-SUFFIX,netflix.net,Netflix
