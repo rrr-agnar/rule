@@ -1,0 +1,188 @@
+[General]
+tun-excluded-routes = 192.168.0.0/16
+bypass-system = true
+bypass-tun = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12
+skip-proxy = 192.168.1.0/24, 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+exclude-simple-hostnames = true
+internet-test-url = http://taobao.com/
+proxy-test-url = http://cp.cloudflare.com/generate_204
+test-timeout = 2
+wifi-assist = false
+# encrypted-dns-server = https://223.5.5.5/ // 除非当地 ISP 有严重的 DNS 污染问题，否则没必要开启 DoH，传统 DNS 的性能最优，网络异常后恢复速度最快
+read-etc-hosts = true
+ipv6 = false
+allow-wifi-access = true
+allow-hotspot-access = true
+geoip-maxmind-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb
+ipv6-vif = disabled
+all-hybrid = false
+use-local-host-item-for-proxy = true
+include-all-networks = false
+include-local-networks = false
+http-api = 425612@127.0.0.1:6171
+http-api-tls = true
+http-api-web-dashboard = false
+loglevel = notify
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53
+disable-geoip-db-auto-update = false
+encrypted-dns-follow-outbound-mode = false
+dns-server = 8.8.8.8, 1.1.1.1, 8.8.4.4, 208.67.222.222, 208.67.220.220, 119.29.29.29, system
+udp-policy-not-supported-behaviour = REJECT
+encrypted-dns-server = https://doh.pub/dns-query
+compatibility-mode = 1
+[Proxy Group]
+US = select, 香港, 美国, no-alert=0, hidden=0, include-all-proxies=0
+美客多 = select, policy-regex-filter=墨西哥, no-alert=0, hidden=0, include-all-proxies=0, include-other-group=edge
+Netflix = select, 美国, 香港, 日本, 台湾, 新加坡, 土耳其,  no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/netflix(red).png
+YouTube = select, 低倍率, 美国, 香港, 日本, 台湾, 新加坡,  no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/youtube.png
+代理 = select, 美国, 香港, 日本, 台湾, 新加坡, 印度 no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Surge(11).png
+法外狂徒 = select, DIRECT, 低倍率, 香港, 美国, REJECT,  no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/xiaoxiong(1).png
+GameSelect = select, DIRECT, 低倍率, 美国, 香港, 日本, 台湾, 新加坡,  no-alert=0, hidden=0, include-all-proxies=0, no-alert=0, icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/game.png
+比特币 = select, 台湾, 日本, 新加坡, no-alert=0, hidden=0, include-all-proxies=0
+韩国 = select, policy-regex-filter=韩国, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="ac, plu, edge"
+美国 = select, policy-regex-filter=美国, no-alert=0, hidden=0, include-all-proxies=1, include-other-group="ac, plu, edge", icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/US.png
+香港 = select, policy-regex-filter=香港, no-alert=0, hidden=0, include-all-proxies=1, include-other-group="ac, plu, edge", icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Hongkong(3).png
+日本 = select, policy-regex-filter=日本, no-alert=0, hidden=0, include-all-proxies=1, include-other-group="ac, plu, edge", icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/Japan(2).png
+新加坡 = select, policy-regex-filter=新加坡, no-alert=0, hidden=0, include-all-proxies=1, include-other-group="ac, plu, edge", icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/singapore(1).png
+台湾 = select, policy-regex-filter=台湾, no-alert=0, hidden=0, include-all-proxies=1, include-other-group="ac, plu, edge", icon-url=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/taiwan(3).png
+土耳其 = select, policy-regex-filter=土耳其, no-alert=0, hidden=0, include-all-proxies=1, include-other-group="ac, plu, edge"
+英国 = select, policy-regex-filter=法国|德国|荷兰, no-alert=0, hidden=0, include-all-proxies=0, include-other-group="ac, plu, edge"
+[Rule]
+IP-ASN,16509,比特币,no-resolve
+DOMAIN-KEYWORD,binance,比特币
+IP-ASN,44907,新加坡,no-resolve
+IP-ASN,62014,新加坡,no-resolve
+IP-ASN,59930,美国,no-resolve
+IP-ASN,62041,英国,no-resolve
+IP-ASN,211157,英国,no-resolve
+IP-CIDR,5.28.192.0/18,英国,no-resolve
+IP-CIDR,109.239.140.0/24,英国,no-resolve
+# ####### 苹果相关（简化） ########
+# 所有 *.apple.com（含 appstore.com / itunes.apple.com）直连
+DOMAIN-KEYWORD,apple,DIRECT,extended-matching
+DOMAIN-SUFFIX,apple.com,DIRECT
+# 所有 iCloud 主域直连（含icloud.com.cn）
+DOMAIN-SUFFIX,icloud.com,DIRECT
+DOMAIN-SUFFIX,icloud.com.cn,DIRECT
+# 常见下载与媒体域名直连
+DOMAIN-SUFFIX,aaplimg.com,DIRECT
+DOMAIN-SUFFIX,mzstatic.com,DIRECT
+# 苹果大陆专用域名直连
+DOMAIN-SUFFIX,apple.com.cn,DIRECT
+
+# — 直连微信小程序及静态资源 —
+DOMAIN-SUFFIX,servicewechat.com,DIRECT # 微信小程序主域名
+DOMAIN-SUFFIX,tc.qq.com,DIRECT # 包含 wxapp.tc.qq.com 在内的所有小程序 CDN
+DOMAIN-SUFFIX,qpic.cn,DIRECT # 微信/QQ 图片资源直连
+IP-CIDR,43.175.144.0/24,DIRECT
+
+# — 代理腾讯主要业务 —
+# 将腾讯云 Aceville 网络改为走美国代理
+IP-ASN,139341,美国,no-resolve
+# 或者只针对这个段:
+IP-CIDR,43.174.0.0/15,美国,no-resolve
+IP-ASN,132203,美国,no-resolve # 腾讯 ASN（含微信核心服务）走美区代理
+USER-AGENT,MicroMessenger*,美国 # 微信客户端请求走美区代理
+DOMAIN-SUFFIX,wechat.com,美国
+DOMAIN-SUFFIX,weixin.qq.com,美国
+# —— YouTube 主站域 ——
+DOMAIN-SUFFIX,youtu.be,YouTube
+DOMAIN-SUFFIX,youtube.com,YouTube
+DOMAIN-SUFFIX,youtubeeducation.com,YouTube
+DOMAIN-SUFFIX,youtubegaming.com,YouTube
+DOMAIN-SUFFIX,youtube-nocookie.com,YouTube # 用于隐私模式嵌入 [oai_citation:3‡en.wikipedia.org](https://en.wikipedia.org/wiki/History_of_YouTube#:~:text=In%20early%202009%2C%20YouTube%20registered,72)
+
+# —— YouTube API 与嵌入服务 ——
+DOMAIN-SUFFIX,youtubei.googleapis.com,YouTube
+DOMAIN-SUFFIX,youtube.googleapis.com,YouTube
+DOMAIN-SUFFIX,youtubeembeddedplayer.googleapis.com,YouTube
+
+# —— 视频流与缓存服务器 ——
+DOMAIN-SUFFIX,googlevideo.com,YouTube # YouTube 视频流域 [oai_citation:4‡netify.ai](https://www.netify.ai/resources/domains/googlevideo.com#:~:text=googlevideo.com%20)
+DOMAIN-SUFFIX,gvt1.com,YouTube # Google Video Transcoding 缓存 [oai_citation:5‡android.stackexchange.com](https://android.stackexchange.com/questions/48694/how-to-stop-play-store-from-auto-updating-itself#:~:text=I%20can%27t%20say%20for%20sure,is%20some%20kind%20of%20cache)
+DOMAIN-SUFFIX,gvt2.com,YouTube
+
+# —— 图片和缩略图域 ——
+DOMAIN-SUFFIX,ytimg.com,YouTube
+DOMAIN-SUFFIX,ggpht.com,YouTube
+
+# —— 兜底关键字匹配（可选） ——
+DOMAIN-KEYWORD,youtube,YouTube
+# Google直连
+DOMAIN-SUFFIX,google.cn,DIRECT
+DOMAIN-SUFFIX,googleapis.cn,DIRECT
+DOMAIN-SUFFIX,googleapis-cn.com,DIRECT
+DOMAIN-SUFFIX,googlecnapps.cn,DIRECT
+DOMAIN-SUFFIX,google.cn,DIRECT
+DOMAIN-SUFFIX,googleapis.cn,DIRECT
+DOMAIN-SUFFIX,googleapis-cn.com,DIRECT
+DOMAIN-SUFFIX,googlecnapps.cn,DIRECT
+# Google API
+DOMAIN-SUFFIX,google.com,代理
+DOMAIN-SUFFIX,googleapis.com,代理
+DOMAIN-SUFFIX,googleusercontent.com,代理 # 用于文档、图片等内容
+DOMAIN-SUFFIX,gmail.com,代理
+DOMAIN-SUFFIX,googlemail.com,代理
+DOMAIN-SUFFIX,accounts.google.com,代理
+DOMAIN-SUFFIX,drive.google.com,代理
+DOMAIN-SUFFIX,docs.google.com,代理
+DOMAIN-SUFFIX,calendar.google.com,代理
+DOMAIN-SUFFIX,photos.google.com,代理
+DOMAIN-SUFFIX,hangouts.google.com,代理
+DOMAIN-SUFFIX,translate.google.com,代理
+DOMAIN-SUFFIX,storage.googleapis.com,代理 # Google Cloud 存储
+IP-ASN,15169,Google,no-resolve
+# —— Netflix 主站及区域站点 ——
+DOMAIN-SUFFIX,netflix.com,Netflix
+DOMAIN-SUFFIX,netflix.net,Netflix
+DOMAIN-SUFFIX,netflix.ca,Netflix
+DOMAIN-SUFFIX,netflix.com.au,Netflix
+DOMAIN-SUFFIX,netflixinvestor.com,Netflix
+DOMAIN-SUFFIX,netflixstudios.com,Netflix
+DOMAIN-SUFFIX,netflixtechblog.com,Netflix
+# —— Netflix 测速与测试域 ——
+DOMAIN-SUFFIX,fast.com,Netflix # 官方测速服务 [oai_citation:7‡netify.ai](https://www.netify.ai/resources/domains/fast.com#:~:text=Fast.com%20,speeds%2C%20as%20well%20as%20latency)
+DOMAIN-KEYWORD,netflixdnstest,Netflix # 覆盖 netflixdnstest0~10.com 等 [oai_citation:8‡raw.githubusercontent.com](https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list#:~:text=DOMAIN,SUFFIX%2Cnetflixdnstest9.com)
+# —— CDN 与资源域名 ——
+DOMAIN-SUFFIX,nflxvideo.net,Netflix # 视频流服务器 [oai_citation:9‡netify.ai](https://www.netify.ai/resources/domains/nflxvideo.net#:~:text=nflxvideo.net%20)
+DOMAIN-SUFFIX,nflximg.com,Netflix # 图片/缩略图 CDN [oai_citation:10‡netify.ai](https://www.netify.ai/resources/domains/nflximg.com#:~:text=nflximg.com%20)
+DOMAIN-SUFFIX,nflximg.net,Netflix
+DOMAIN-SUFFIX,nflxext.com,Netflix # 扩展与帮助中心 [oai_citation:11‡netify.ai](https://www.netify.ai/resources/domains/nflxext.com#:~:text=nflxext.com%20)
+DOMAIN-SUFFIX,nflxso.net,Netflix # 辅助 CDN 域 [oai_citation:12‡netify.ai](https://www.netify.ai/resources/domains/nflxso.net#:~:text=nflxso.net%20)
+DOMAIN-SUFFIX,nflxsearch.net,Netflix # 搜索与索引域（出现在官方列表中）
+
+# —— 其他可能需要的域 ——
+DOMAIN-SUFFIX,netflixcdn.net,Netflix # 某些地区的 CDN
+DOMAIN-SUFFIX,flxvpn.net,Netflix # 奈飞的中继加速域（可选）
+# ####### Instagram ########
+DOMAIN-SUFFIX,instagram.com,代理 # Instagram 主站 [oai_citation:0‡netify.ai](https://www.netify.ai/resources/domains/instagram.com#:~:text=instagram.com%20)
+DOMAIN-SUFFIX,cdninstagram.com,代理 # Instagram CDN [oai_citation:1‡netify.ai](https://www.netify.ai/resources/domains/cdninstagram.com#:~:text=cdninstagram.com%20)
+DOMAIN-SUFFIX,instagr.am,代理 # Instagram 短链
+DOMAIN-KEYWORD,instagram,代理 # 其他 Instagram 子域和 API [oai_citation:2‡netify.ai](https://www.netify.ai/resources/domains/instagram.com#:~:text=Notable%20Hostnames)
+
+# ####### Facebook ########
+DOMAIN-SUFFIX,facebook.com,代理 # Facebook 主站 [oai_citation:3‡netify.ai](https://www.netify.ai/resources/domains/facebook.com#:~:text=facebook.com%20)
+DOMAIN-SUFFIX,fbcdn.net,代理 # Facebook/Instagram 图片视频 CDN [oai_citation:4‡netify.ai](https://www.netify.ai/resources/domains/fbcdn.net#:~:text=fbcdn.net%20)
+DOMAIN-SUFFIX,facebook.net,代理 # Facebook 平台域 [oai_citation:5‡netify.ai](https://www.netify.ai/resources/applications/facebook#:~:text=Domains)
+DOMAIN-SUFFIX,fbsbx.com,代理 # Facebook 文件传输域
+DOMAIN-SUFFIX,fbpigeon.com,代理 # Facebook 辅助域
+DOMAIN-SUFFIX,fb.com,代理 # Facebook 短链及 API 域
+DOMAIN-SUFFIX,messenger.com,代理 # Facebook Messenger
+DOMAIN-KEYWORD,facebook,代理 # 捕获其他 Facebook 子域 [oai_citation:6‡netify.ai](https://www.netify.ai/resources/domains/facebook.com#:~:text=facebook.com%20)
+DOMAIN-KEYWORD,fbcdn,代理 # 捕获所有 fbcdn 子域资源 [oai_citation:7‡netify.ai](https://www.netify.ai/resources/domains/fbcdn.net#:~:text=%2A%20instagram.fagc3,and%20%207%2C341%20more)
+# ####### OpenAI ########
+# —— 主站与门户 ——
+DOMAIN-SUFFIX,openai.com,代理 # OpenAI 官网及二级域名
+DOMAIN,chat.openai.com,代理 # ChatGPT 网页版
+DOMAIN,platform.openai.com,代理 # 开发者平台（用于管理 API Key、账户等）
+DOMAIN,api.openai.com,代理 # API 调用域名
+DOMAIN,auth0.openai.com,代理 # 登录认证域
+DOMAIN,help.openai.com,代理 # 帮助中心
+DOMAIN,status.openai.com,代理 # 状态监控
+DOMAIN,labs.openai.com,代理 # DALL·E 等实验性功能
+DOMAIN,cdn.openai.com,代理 # 静态资源 CDN（如模型文件）
+DOMAIN,openai.azure.com,代理 # 部署在 Azure 上的 ChatGPT 企业版（如有需要）
+DOMAIN-KEYWORD,openai,代理 # 捕获其他可能遗漏的 openai 子域
+GEOIP,CN,DIRECT
+# ####### 兜底 ########
+FINAL,法外狂徒,dns-failed
