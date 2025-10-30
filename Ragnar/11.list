@@ -75,7 +75,7 @@ DOMAIN-SUFFIX,apple.com.cn,DIRECT
 DOMAIN-SUFFIX,servicewechat.com,DIRECT # 微信小程序主域名
 DOMAIN-SUFFIX,tc.qq.com,DIRECT # 包含 wxapp.tc.qq.com 在内的所有小程序 CDN
 DOMAIN-SUFFIX,qpic.cn,DIRECT # 微信/QQ 图片资源直连
-IP-CIDR,43.175.144.0/24,DIRECT
+IP-CIDR,43.175.144.0/24,DIRECT,no-resolve
 
 # — 代理腾讯主要业务 —
 # 将腾讯云 Aceville 网络改为走美国代理
