@@ -1,0 +1,17 @@
+
+
+# — 直连微信小程序及静态资源 —
+DOMAIN-SUFFIX,servicewechat.com # 微信小程序主域名
+DOMAIN-SUFFIX,tc.qq.com # 包含 wxapp.tc.qq.com 在内的所有小程序 CDN
+DOMAIN-SUFFIX,qpic.cn # 微信/QQ 图片资源直连
+IP-CIDR,43.175.144.0/24
+
+# — 代理腾讯主要业务 —
+# 将腾讯云 Aceville 网络改为走美国代理
+IP-ASN,139341,no-resolve
+# 或者只针对这个段:
+IP-CIDR,43.174.0.0/15,no-resolve
+IP-ASN,132203,no-resolve # 腾讯 ASN（含微信核心服务）走美区代理
+USER-AGENT,MicroMessenger* # 微信客户端请求走美区代理
+DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,weixin.qq.com
