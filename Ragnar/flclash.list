@@ -194,6 +194,7 @@ proxy-groups:
     tolerance: 50
     use:
       - 花云
+rule-providers:
 rules:
   # Go to ads
   - RULE-SET,BanAD,REJECT
