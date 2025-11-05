@@ -194,3 +194,25 @@ proxy-groups:
     tolerance: 50
     use:
       - 花云
+rules:
+  # Go to ads
+  - RULE-SET,BanAD,REJECT
+  - RULE-SET,BanEasyListChina,REJECT
+  - RULE-SET,BanEasyPrivacy,REJECT
+  - RULE-SET,BanProgramAD,REJECT
+  - RULE-SET,Hijacking,REJECT
+  - DOMAIN-KEYWORD,byteimg,REJECT
+  - RULE-SET,AD,REJECT
+
+  # Local networks
+  - RULE-SET,LocalAreaNetwork,DIRECT
+  - RULE-SET,ChinaCompanyIp,DIRECT
+
+  # Telegram
+  - IP-ASN,44907,SG
+  - IP-ASN,62014,SG
+  - IP-ASN,59930,US
+  - IP-ASN,62041,EU
+  - IP-ASN,211157,EU
+  - IP-CIDR,5.28.192.0/18,EU
+  - IP-CIDR,109.239.140.0/24,EU
