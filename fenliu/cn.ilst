@@ -34,3 +34,8 @@ DOMAIN-SUFFIX,vip.dytt-cinema.com
 DOMAIN-SUFFIX,dytt-cinema.com
 DOMAIN-SUFFIX,cinema.com
 
+# — 直连微信小程序及静态资源 —
+DOMAIN-SUFFIX,servicewechat.com # 微信小程序主域名
+DOMAIN-SUFFIX,tc.qq.com # 包含 wxapp.tc.qq.com 在内的所有小程序 CDN
+DOMAIN-SUFFIX,qpic.cn # 微信/QQ 图片资源直连
+IP-CIDR,43.175.144.0/24,no-resolve
