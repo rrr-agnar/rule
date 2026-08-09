@@ -1,11 +1,124 @@
-# xAI / Grok 核心
-  - DOMAIN-SUFFIX,x.ai
-  - DOMAIN-SUFFIX,grok.com
-  - DOMAIN-SUFFIX,api.x.ai
-  - DOMAIN,grok.x.com         # X 内嵌 Grok 有时会用到
+# ========================================
+# 全部 AI 服务规则（list 格式）
+# 覆盖：OpenAI / ChatGPT / Claude / Gemini / Grok / Perplexity / Cursor / Copilot 等
+# 适用：Clash / Mihomo / Stash / Surge 等
+# ========================================
 
-  # X 平台相关（登录、图片、短链，建议一起走，不然容易半加载）
-  - DOMAIN-SUFFIX,x.com
-  - DOMAIN-SUFFIX,twitter.com
-  - DOMAIN-SUFFIX,twimg.com
-  - DOMAIN-SUFFIX,t.co
+# ---------- OpenAI / ChatGPT / Sora ----------
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net
+DOMAIN-SUFFIX,sora.com
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,chat.com
+DOMAIN-KEYWORD,openai
+DOMAIN,chat.openai.com.cdn.cloudflare.net
+DOMAIN,openai-api.arkoselabs.com
+DOMAIN,openaicomproductionae4b.blob.core.windows.net
+DOMAIN,production-openaicom-storage.azureedge.net
+DOMAIN,browser-intake-datadoghq.com
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN-SUFFIX,host.livekit.cloud
+DOMAIN-SUFFIX,turn.livekit.cloud
+DOMAIN-SUFFIX,client-api.arkoselabs.com
+
+# ---------- Anthropic / Claude ----------
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,claude
+
+# ---------- Google Gemini / Bard / AI Studio / DeepMind / NotebookLM ----------
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,makersuite.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,notebooklm.google
+DOMAIN-SUFFIX,notebooklm.google.com
+DOMAIN,ai.google.dev
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN-KEYWORD,generativelanguage
+DOMAIN-KEYWORD,colab
+
+# ---------- xAI / Grok ----------
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
+DOMAIN-SUFFIX,g.ai
+DOMAIN,api.x.ai
+DOMAIN,grok.x.ai
+DOMAIN,chat.x.ai
+DOMAIN,console.x.ai
+DOMAIN,docs.x.ai
+DOMAIN-SUFFIX,grokusercontent.com
+DOMAIN-SUFFIX,xaiusercontent.com
+DOMAIN-SUFFIX,featureassets.org
+DOMAIN-SUFFIX,xai.chronosphere.io
+
+# ---------- X 平台（Grok 登录强依赖）----------
+DOMAIN-SUFFIX,x.com
+DOMAIN-SUFFIX,twitter.com
+DOMAIN-SUFFIX,twimg.com
+DOMAIN-SUFFIX,t.co
+DOMAIN-SUFFIX,pscp.tv
+
+# ---------- Microsoft Copilot / Bing AI ----------
+DOMAIN-SUFFIX,copilot.microsoft.com
+DOMAIN-SUFFIX,copilot.cloud.microsoft
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN,sydney.bing.com
+DOMAIN,copilot-proxy.githubusercontent.com
+DOMAIN,api.githubcopilot.com
+
+# ---------- Cursor ----------
+DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,cursor.sh
+DOMAIN-SUFFIX,cursor-cdn.com
+DOMAIN-SUFFIX,cursorapi.com
+
+# ---------- Perplexity ----------
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,pplx.ai
+
+# ---------- 其他主流 AI ----------
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,poecdn.net
+DOMAIN-SUFFIX,groq.com
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,mistral.ai
+DOMAIN-SUFFIX,cohere.ai
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,huggingface.co
+DOMAIN-SUFFIX,hf.co
+DOMAIN-SUFFIX,hf.space
+DOMAIN-SUFFIX,openrouter.ai
+DOMAIN-SUFFIX,together.ai
+DOMAIN-SUFFIX,replicate.com
+DOMAIN-SUFFIX,stability.ai
+DOMAIN-SUFFIX,jasper.ai
+DOMAIN-SUFFIX,clipdrop.co
+DOMAIN-SUFFIX,dify.ai
+DOMAIN-SUFFIX,openart.ai
+DOMAIN-SUFFIX,cerebras.ai
+DOMAIN-SUFFIX,codeium.com
+DOMAIN-SUFFIX,windsurf.com
+
+# ---------- 常见依赖（认证 / 支付 / 统计，建议一起走代理）----------
+DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,stripe.com
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,statsig.com
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN-SUFFIX,identrust.com
+DOMAIN-SUFFIX,hcaptcha.com
