@@ -1,0 +1,11 @@
+# xAI / Grok 核心
+  - DOMAIN-SUFFIX,x.ai
+  - DOMAIN-SUFFIX,grok.com
+  - DOMAIN-SUFFIX,api.x.ai
+  - DOMAIN,grok.x.com         # X 内嵌 Grok 有时会用到
+
+  # X 平台相关（登录、图片、短链，建议一起走，不然容易半加载）
+  - DOMAIN-SUFFIX,x.com
+  - DOMAIN-SUFFIX,twitter.com
+  - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,t.co
