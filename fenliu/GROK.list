@@ -225,3 +225,88 @@ DOMAIN-KEYWORD,stability
 DOMAIN-KEYWORD,replicate
 DOMAIN-KEYWORD,huggingface
 DOMAIN-KEYWORD,suno
+# ========================================
+# Claude / Anthropic 完整规则
+# 覆盖网页、API、Console、CLI、Artifacts、登录、CDN、遥测等
+# ========================================
+
+# ---------- 核心域名 ----------
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,claude.app
+DOMAIN-SUFFIX,claude.new
+DOMAIN-SUFFIX,claude.site
+DOMAIN-SUFFIX,claudestudio.com
+DOMAIN-SUFFIX,claudepages.dev
+DOMAIN-SUFFIX,modelcontextprotocol.com
+DOMAIN-SUFFIX,modelcontextprotocol.io
+DOMAIN-SUFFIX,modelcontextprotocol.net
+DOMAIN-SUFFIX,modelcontextprotocol.org
+DOMAIN-SUFFIX,anthropic.team
+DOMAIN-SUFFIX,antspace.dev
+
+# ---------- 精确主机（重要） ----------
+DOMAIN,api.anthropic.com
+DOMAIN,api.claude.ai
+DOMAIN,api.us.anthropic.com
+DOMAIN,api.eu.anthropic.com
+DOMAIN,console.anthropic.com
+DOMAIN,platform.claude.com
+DOMAIN,docs.claude.com
+DOMAIN,support.claude.com
+DOMAIN,cdn.anthropic.com
+DOMAIN,assets.anthropic.com
+DOMAIN,static.anthropic.com
+DOMAIN,files.anthropic.com
+DOMAIN,models.anthropic.com
+DOMAIN,mcp.anthropic.com
+DOMAIN,mcp-proxy.anthropic.com
+DOMAIN,workbench.anthropic.com
+DOMAIN,auth.anthropic.com
+DOMAIN,accounts.anthropic.com
+DOMAIN,oauth.anthropic.com
+DOMAIN,events.anthropic.com
+DOMAIN,metrics.anthropic.com
+DOMAIN,telemetry.anthropic.com
+DOMAIN,status.anthropic.com
+DOMAIN,downloads.claude.ai
+DOMAIN,artifacts.claude.ai
+DOMAIN,media.claudeusercontent.com
+
+# ---------- CDN / 静态资源 ----------
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,anthropic.com.cdn.cloudflare.net
+DOMAIN,cdn.growthbook.io
+DOMAIN,cdn.usefathom.com
+DOMAIN,storage.googleapis.com
+
+# ---------- 认证 / 登录 ----------
+DOMAIN,anthropic.auth0.com
+DOMAIN,anthropic-com.ghost.io
+
+# ---------- 监控 / 遥测 / 反欺诈（重要，防风控） ----------
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN,browser-intake-us5-datadoghq.com
+DOMAIN-KEYWORD,datadog
+DOMAIN-KEYWORD,sift
+
+# ---------- 客服 / 第三方组件 ----------
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+
+# ---------- 进程名（客户端） ----------
+PROCESS-NAME,Claude
+PROCESS-NAME,Claude.exe
+PROCESS-NAME,claude
+PROCESS-NAME,claude.exe
+
+# ---------- IP / ASN 兜底（可选） ----------
+IP-CIDR,160.79.104.0/21,no-resolve
+IP-CIDR6,2607:6bc0::/32,no-resolve
+IP-ASN,399358,no-resolve
