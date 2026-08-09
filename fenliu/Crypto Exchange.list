@@ -1,0 +1,168 @@
+# ========================================
+# 完整交易所规则（Crypto Exchange）
+# 覆盖 Binance / OKX / Bybit / Bitget / Gate / KuCoin / Coinbase / Kraken 等主流
+# + 数据站 / 浏览器 / DeFi 入口
+# ========================================
+
+# ---------- Binance ----------
+DOMAIN-SUFFIX,binance.com
+DOMAIN-SUFFIX,binance.us
+DOMAIN-SUFFIX,binance.cc
+DOMAIN-SUFFIX,binance.cloud
+DOMAIN-SUFFIX,binance.im
+DOMAIN-SUFFIX,binance.me
+DOMAIN-SUFFIX,binance.info
+DOMAIN-SUFFIX,binance.net
+DOMAIN-SUFFIX,binance.org
+DOMAIN-SUFFIX,binance.vision
+DOMAIN-SUFFIX,binanceapi.com
+DOMAIN-SUFFIX,binancezh.com
+DOMAIN-SUFFIX,binancezh.cc
+DOMAIN-SUFFIX,binancezh.co
+DOMAIN-SUFFIX,binancezh.info
+DOMAIN-SUFFIX,binancezh.pro
+DOMAIN-SUFFIX,binancezh.top
+DOMAIN-SUFFIX,bnbstatic.com
+DOMAIN-SUFFIX,bntrace.com
+DOMAIN-SUFFIX,bnappzh.com
+DOMAIN-SUFFIX,bnappzh.co
+DOMAIN-SUFFIX,binancecnt.com
+DOMAIN-KEYWORD,binance
+PROCESS-NAME,Binance.exe
+
+# ---------- OKX ----------
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,okx-dns.com
+DOMAIN-SUFFIX,okx-dns1.com
+DOMAIN-SUFFIX,okx-dns2.com
+DOMAIN-KEYWORD,okx
+PROCESS-NAME,OKX.exe
+
+# ---------- Bybit ----------
+DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bybit.biz
+DOMAIN-SUFFIX,bybit-aws.com
+DOMAIN-SUFFIX,byabcde.com
+DOMAIN-SUFFIX,byapps.net
+DOMAIN-SUFFIX,bybdc6.com
+DOMAIN-SUFFIX,byd3c3.com
+DOMAIN-KEYWORD,bybit
+
+# ---------- Bitget ----------
+DOMAIN-SUFFIX,bitget.com
+DOMAIN-SUFFIX,bitget.site
+DOMAIN-KEYWORD,bitget
+
+# ---------- Gate.io ----------
+DOMAIN-SUFFIX,gate.io
+DOMAIN-SUFFIX,gate.ac
+DOMAIN-SUFFIX,gate.com
+DOMAIN-KEYWORD,gateio
+
+# ---------- KuCoin ----------
+DOMAIN-SUFFIX,kucoin.com
+DOMAIN-SUFFIX,kucoin.plus
+DOMAIN-KEYWORD,kucoin
+
+# ---------- MEXC ----------
+DOMAIN-SUFFIX,mexc.com
+DOMAIN-SUFFIX,mexc.co
+DOMAIN-KEYWORD,mexc
+
+# ---------- HTX (原 Huobi) ----------
+DOMAIN-SUFFIX,htx.com
+DOMAIN-SUFFIX,huobi.com
+DOMAIN-SUFFIX,huobi.pro
+DOMAIN-SUFFIX,huobipro.com
+DOMAIN-KEYWORD,huobi
+PROCESS-NAME,Huobi.exe
+
+# ---------- Coinbase ----------
+DOMAIN-SUFFIX,coinbase.com
+DOMAIN-SUFFIX,coinbase.org
+DOMAIN-SUFFIX,pro.coinbase.com
+DOMAIN-KEYWORD,coinbase
+
+# ---------- Kraken ----------
+DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,kraken.ch
+DOMAIN-KEYWORD,kraken
+
+# ---------- 其他主流交易所 ----------
+DOMAIN-SUFFIX,bitfinex.com
+DOMAIN-SUFFIX,bitmex.com
+DOMAIN-SUFFIX,bitstamp.net
+DOMAIN-SUFFIX,bittrex.com
+DOMAIN-SUFFIX,gemini.com
+DOMAIN-SUFFIX,poloniex.com
+DOMAIN-SUFFIX,liquid.com
+DOMAIN-SUFFIX,bithumb.com
+DOMAIN-SUFFIX,coincheck.com
+DOMAIN-SUFFIX,bitbank.cc
+DOMAIN-SUFFIX,bitflyer.com
+DOMAIN-SUFFIX,bitflyer.jp
+DOMAIN-SUFFIX,korbit.co.kr
+DOMAIN-SUFFIX,coinone.co.kr
+DOMAIN-SUFFIX,upbit.com
+DOMAIN-SUFFIX,bity.com
+DOMAIN-SUFFIX,cex.io
+DOMAIN-SUFFIX,ftx.com
+DOMAIN-SUFFIX,deribit.com
+DOMAIN-SUFFIX,phemex.com
+DOMAIN-SUFFIX,bingx.com
+DOMAIN-SUFFIX,lbank.info
+DOMAIN-SUFFIX,lbank.com
+DOMAIN-SUFFIX,xt.com
+DOMAIN-SUFFIX,bitmart.com
+DOMAIN-SUFFIX,hotcoin.com
+DOMAIN-SUFFIX,digifinex.com
+DOMAIN-SUFFIX,coinex.com
+DOMAIN-SUFFIX,ascendex.com
+DOMAIN-SUFFIX,whitebit.com
+DOMAIN-SUFFIX,bitvavo.com
+DOMAIN-SUFFIX,crypto.com
+DOMAIN-SUFFIX,cryptocom.com
+
+# ---------- 数据 / 行情 / 浏览器 ----------
+DOMAIN-SUFFIX,coingecko.com
+DOMAIN-SUFFIX,coinmarketcap.com
+DOMAIN-SUFFIX,coinmarketcap.org
+DOMAIN-SUFFIX,tradingview.com
+DOMAIN-SUFFIX,dextools.io
+DOMAIN-SUFFIX,dexscreener.com
+DOMAIN-SUFFIX,birdeye.so
+DOMAIN-SUFFIX,defined.fi
+DOMAIN-SUFFIX,debank.com
+DOMAIN-SUFFIX,etherscan.io
+DOMAIN-SUFFIX,bscscan.com
+DOMAIN-SUFFIX,polygonscan.com
+DOMAIN-SUFFIX,arbiscan.io
+DOMAIN-SUFFIX,optimistic.etherscan.io
+DOMAIN-SUFFIX,snowtrace.io
+DOMAIN-SUFFIX,solscan.io
+DOMAIN-SUFFIX,tronscan.org
+DOMAIN-SUFFIX,blockchair.com
+DOMAIN-SUFFIX,blockchain.com
+DOMAIN-SUFFIX,mempool.space
+
+# ---------- 常见 DeFi / 钱包入口（可选） ----------
+DOMAIN-SUFFIX,uniswap.org
+DOMAIN-SUFFIX,pancakeswap.finance
+DOMAIN-SUFFIX,sushi.com
+DOMAIN-SUFFIX,1inch.io
+DOMAIN-SUFFIX,aave.com
+DOMAIN-SUFFIX,compound.finance
+DOMAIN-SUFFIX,curve.fi
+DOMAIN-SUFFIX,makerdao.com
+DOMAIN-SUFFIX,raydium.io
+DOMAIN-SUFFIX,jupiter.ag
+DOMAIN-SUFFIX,orca.so
+DOMAIN-SUFFIX,metamask.io
+DOMAIN-SUFFIX,walletconnect.com
+DOMAIN-SUFFIX,walletconnect.org
+
+# ---------- 论坛 / 资讯 ----------
+DOMAIN-SUFFIX,bitcointalk.org
+DOMAIN-SUFFIX,reddit.com
+DOMAIN-KEYWORD,crypto
